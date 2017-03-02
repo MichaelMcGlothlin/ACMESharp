@@ -1,23 +1,15 @@
-﻿namespace ACMESharp.Vault.Model
-{
-    public class IssuerCertificateInfo
-    {
-        public string SerialNumber
-        { get; set; }
+﻿namespace ACMESharp.Vault.Model {
+ public class IssuerCertificateInfo {
+  public System.String SerialNumber { get; set; }
 
-        public string Thumbprint
-        { get; set; }
+  public System.String Thumbprint { get; set; }
 
-        public string Signature
-        { get; set; }
+  public System.String Signature { get; set; }
 
-        public string SignatureAlgorithm
-        { get; set; }
+  public System.String SignatureAlgorithm { get; set; }
 
-        public string CrtPemFile
-        { get; set; }
+  public System.String CrtPemFile { get; set; }
 
-        public string CrtDerFile
-        { get; set; }
-    }
+  public System.String CrtDerFile { get; set; }
+ }
 }

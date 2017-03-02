@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace ACMESharp.Vault.Profile
-{
-    public class InstallerProfile
-    {
-        public string InstallerProvider
-        { get; set; }
+namespace ACMESharp.Vault.Profile {
+ public class InstallerProfile {
+  public System.String InstallerProvider { get; set; }
 
-        public IReadOnlyDictionary<string, object> InstanceParameters
-        { get; set; }
-    }
+  public IReadOnlyDictionary<System.String, System.Object> InstanceParameters { get; set; }
+ }
 }

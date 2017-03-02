@@ -1,20 +1,18 @@
 ﻿using System;
 using System.IO;
 
-namespace ACMESharp.JOSE
-{
-    public interface ISigner : IDisposable
-    {
-        string JwsAlg { get; }
+namespace ACMESharp.JOSE {
+ public interface ISigner : IDisposable {
+  String JwsAlg { get; }
 
-        void Init();
+  void Init ();
 
-        void Save(Stream stream);
+  void Save ( Stream stream );
 
-        void Load(Stream stream);
+  void Load ( Stream stream );
 
-        object ExportJwk(bool canonical = false);
+  Object ExportJwk ( Boolean canonical = false );
 
-        byte[] Sign(byte[] raw);
-    }
+  Byte[] Sign ( Byte[] raw );
+ }
 }

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace ACMESharp.Ext
-{
-    public interface IAliasesSupported
-    {
-        IEnumerable<string> Aliases
-        { get; }
-    }
+namespace ACMESharp.Ext {
+ public interface IAliasesSupported {
+  IEnumerable<System.String> Aliases { get; }
+ }
 }

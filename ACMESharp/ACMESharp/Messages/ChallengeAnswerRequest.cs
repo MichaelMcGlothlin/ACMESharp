@@ -1,76 +1,46 @@
-﻿using System;
+﻿using ACMESharp.ACME;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ACMESharp.ACME;
 
-namespace ACMESharp.Messages
-{
-    public class ChallengeAnswerRequest : RequestMessage, IReadOnlyDictionary<string, object>
-    {
-        private readonly Dictionary<string, object> _fieldValues = new Dictionary<string, object>();
+namespace ACMESharp.Messages {
+ public class ChallengeAnswerRequest : RequestMessage, IReadOnlyDictionary<System.String, System.Object> {
+  private readonly Dictionary<System.String, System.Object> _fieldValues = new Dictionary<System.String, System.Object> ();
 
-        private ChallengeAnswerRequest(ChallengeAnswer answer)
-                : base("challenge")
-        {
-            Answer = answer;
+  private ChallengeAnswerRequest ( ChallengeAnswer answer )
+          : base ( "challenge" ) {
+   Answer = answer;
 
-            // Have to reproduce base properties
-            // since this class is a dictionary
-            _fieldValues[nameof(Resource)] = base.Resource;
+   // Have to reproduce base properties
+   // since this class is a dictionary
+   _fieldValues[ nameof ( Resource ) ] = base.Resource;
 
-            foreach (var field in answer.GetFields())
-            {
-                _fieldValues[field] = answer[field];
-            }
-        }
+   foreach ( var field in answer.GetFields () ) {
+    _fieldValues[ field ] = answer[ field ];
+   }
+  }
 
-        protected ChallengeAnswer Answer
-        { get; private set; }
+  protected ChallengeAnswer Answer { get; private set; }
 
-        public static ChallengeAnswerRequest CreateRequest(ChallengeAnswer answer)
-        {
-            return new ChallengeAnswerRequest(answer);
-        }
+  public static ChallengeAnswerRequest CreateRequest ( ChallengeAnswer answer ) => new ChallengeAnswerRequest ( answer );
 
-        #region -- Explicit Implementation Members --
+  #region -- Explicit Implementation Members --
 
-        IEnumerator<KeyValuePair<string, object>> IEnumerable<KeyValuePair<string, object>>.GetEnumerator()
-        {
-            return _fieldValues.GetEnumerator();
-        }
+  IEnumerator<KeyValuePair<System.String, System.Object>> IEnumerable<KeyValuePair<System.String, System.Object>>.GetEnumerator () => _fieldValues.GetEnumerator ();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return _fieldValues.GetEnumerator();
-        }
+  IEnumerator IEnumerable.GetEnumerator () => _fieldValues.GetEnumerator ();
 
-        int IReadOnlyCollection<KeyValuePair<string, object>>.Count
-                => _fieldValues.Count;
+  System.Int32 IReadOnlyCollection<KeyValuePair<System.String, System.Object>>.Count => _fieldValues.Count;
 
-        bool IReadOnlyDictionary<string, object>.ContainsKey(string key)
-        {
-            return _fieldValues.ContainsKey(key);
-        }
+  System.Boolean IReadOnlyDictionary<System.String, System.Object>.ContainsKey ( System.String key ) => _fieldValues.ContainsKey ( key );
 
-        bool IReadOnlyDictionary<string, object>.TryGetValue(string key, out object value)
-        {
-            return _fieldValues.TryGetValue(key, out value);
-        }
+  System.Boolean IReadOnlyDictionary<System.String, System.Object>.TryGetValue ( System.String key, out System.Object value ) => _fieldValues.TryGetValue ( key, out value );
 
-        object IReadOnlyDictionary<string, object>.this[string key]
-        {
-            get { return _fieldValues[key]; }
-        }
+  System.Object IReadOnlyDictionary<System.String, System.Object>.this[ System.String key ] => _fieldValues[ key ];
 
-        IEnumerable<string> IReadOnlyDictionary<string, object>.Keys
-                => _fieldValues.Keys;
+  IEnumerable<System.String> IReadOnlyDictionary<System.String, System.Object>.Keys => _fieldValues.Keys;
 
-        IEnumerable<object> IReadOnlyDictionary<string, object>.Values
-                => _fieldValues.Values;
-        
-        #endregion -- Explicit Implementation Members --
-    }
+  IEnumerable<System.Object> IReadOnlyDictionary<System.String, System.Object>.Values => _fieldValues.Values;
+
+  #endregion -- Explicit Implementation Members --
+ }
 }

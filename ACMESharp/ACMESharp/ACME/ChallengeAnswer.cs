@@ -1,93 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace ACMESharp.ACME
-{
-    public abstract class ChallengeAnswer
-    {
-        private readonly Dictionary<string, object> _fieldValues = new Dictionary<string, object>();
+namespace ACMESharp.ACME {
+ public abstract class ChallengeAnswer {
+  private readonly Dictionary<System.String, System.Object> _fieldValues = new Dictionary<System.String, System.Object> ();
 
-        public object this[string field]
-        {
-            get { return _fieldValues[field]; }
-            protected set { _fieldValues[field] = value; }
-        }
+  public System.Object this[ System.String field ] {
+   get => _fieldValues[ field ]; protected set => _fieldValues[ field ] = value;
+  }
 
-        //public IReadOnlyDictionary<string, object> ToResponseMessage()
-        //{
-        //    return _fieldValues;
-        //}
+  //public IReadOnlyDictionary<string, object> ToResponseMessage()
+  //{
+  //    return _fieldValues;
+  //}
 
-        public IEnumerable<string> GetFields()
-        {
-            return _fieldValues.Keys;
-        }
+  public IEnumerable<System.String> GetFields () => _fieldValues.Keys;
 
-        protected void Remove(string field)
-        {
-            _fieldValues.Remove(field);
-        }
-    }
+  protected void Remove ( System.String field ) => _fieldValues.Remove ( field );
+ }
 
-    public class DnsChallengeAnswer : ChallengeAnswer
-    {
-        public string KeyAuthorization
-        {
-            get { return this[nameof(KeyAuthorization)] as string; }
-            set { this[nameof(KeyAuthorization)] = value; }
-        }
-    }
+ public class DnsChallengeAnswer : ChallengeAnswer {
+  public System.String KeyAuthorization {
+   get => this[ nameof ( KeyAuthorization ) ] as System.String; set => this[ nameof ( KeyAuthorization ) ] = value;
+  }
+ }
 
-    public class HttpChallengeAnswer : ChallengeAnswer
-    {
-        public string KeyAuthorization
-        {
-            get { return this[nameof(KeyAuthorization)] as string; }
-            set { this[nameof(KeyAuthorization)] = value; }
-        }
-    }
+ public class HttpChallengeAnswer : ChallengeAnswer {
+  public System.String KeyAuthorization {
+   get => this[ nameof ( KeyAuthorization ) ] as System.String; set => this[ nameof ( KeyAuthorization ) ] = value;
+  }
+ }
 
-    public class TlsSniChallengeAnswer : ChallengeAnswer
-    {
-        public string KeyAuthorization
-        {
-            get { return this[nameof(KeyAuthorization)] as string; }
-            set { this[nameof(KeyAuthorization)] = value; }
-        }
-    }
+ public class TlsSniChallengeAnswer : ChallengeAnswer {
+  public System.String KeyAuthorization {
+   get => this[ nameof ( KeyAuthorization ) ] as System.String; set => this[ nameof ( KeyAuthorization ) ] = value;
+  }
+ }
 
-    public class PriorKeyChallengeAnswer : ChallengeAnswer
-    {
-        public string Authorization
-        {
-            get { return this[nameof(KeyAuthorization)] as string; }
-            set { this[nameof(KeyAuthorization)] = value; }
-        }
+ public class PriorKeyChallengeAnswer : ChallengeAnswer {
+  public System.String Authorization {
+   get => this[ nameof ( KeyAuthorization ) ] as System.String; set => this[ nameof ( KeyAuthorization ) ] = value;
+  }
 
-        public string KeyAuthorization
-        {
-            get { return this[nameof(KeyAuthorization)] as string; }
-            set { this[nameof(KeyAuthorization)] = value; }
-        }
+  public System.String KeyAuthorization {
+   get => this[ nameof ( KeyAuthorization ) ] as System.String; set => this[ nameof ( KeyAuthorization ) ] = value;
+  }
 
-        // TODO:  WORK IN PROGRESS!!!
-        //    https://tools.ietf.org/html/draft-ietf-acme-acme-01#section-7.4
-        public class Authz
-        {
-            public string Payload
-            { get; set; }
+  // TODO:  WORK IN PROGRESS!!!
+  //    https://tools.ietf.org/html/draft-ietf-acme-acme-01#section-7.4
+  public class Authz {
+   public System.String Payload { get; set; }
 
-            public string Signature
-            { get; set; }
+   public System.String Signature { get; set; }
 
-            public string HeaderAlg
-            { get; set; }
+   public System.String HeaderAlg { get; set; }
 
-            public object HeaderJwk
-            { get; set; }
-        }
-    }
+   public System.Object HeaderJwk { get; set; }
+  }
+ }
 }

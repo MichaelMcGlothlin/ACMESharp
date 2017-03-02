@@ -1,25 +1,17 @@
 ﻿using System.Collections.Generic;
 
-namespace ACMESharp.Messages
-{
-    public class RegResponse
-    {
-        public object Key
-        { get; set; }
+namespace ACMESharp.Messages {
+ public class RegResponse {
+  public System.Object Key { get; set; }
 
-        public IEnumerable<string> Contact
-        { get; set; }
+  public IEnumerable<System.String> Contact { get; set; }
 
-        public string Agreement
-        { get; set; }
+  public System.String Agreement { get; set; }
 
-        public string Authorizations
-        { get; set; }
+  public System.String Authorizations { get; set; }
 
-        public string Certificates
-        { get; set; }
+  public System.String Certificates { get; set; }
 
-        public object RecoveryKey
-        { get; set; }
-    }
+  public System.Object RecoveryKey { get; set; }
+ }
 }

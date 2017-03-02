@@ -1,11 +1,7 @@
-﻿namespace ACMESharp.Messages
-{
-    public class AnswerHttpChallengeRequest : RequestMessage
-    {
-        public AnswerHttpChallengeRequest() : base("challenge")
-        { }
+﻿namespace ACMESharp.Messages {
+ public class AnswerHttpChallengeRequest : RequestMessage {
+  public AnswerHttpChallengeRequest () : base ( "challenge" ) { }
 
-        public string KeyAuthorization
-        { get; set; }
-    }
+  public System.String KeyAuthorization { get; set; }
+ }
 }

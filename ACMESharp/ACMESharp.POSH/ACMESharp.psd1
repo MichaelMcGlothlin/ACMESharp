@@ -1,5 +1,4 @@
-﻿
-## For a reference of this file's elements, see:
+﻿## For a reference of this file's elements, see:
 ##    https://technet.microsoft.com/library/hh849709.aspx
 ##    https://technet.microsoft.com/en-us/library/dd878297(v=vs.85).aspx
 
@@ -12,12 +11,12 @@
 	RootModule = 'ACMESharp.POSH.dll'
 	ModuleVersion = '0.8.2'
 	GUID = '244FAB9A-D367-4C0E-A088-FF3D34EDF713'
-	
+
 	Author = 'https://github.com/ebekker'
 
 	CompanyName = 'https://github.com/ebekker/ACMESharp'
 
-	Copyright = '(c) 2016 Eugene Bekker. All rights reserved.'	
+	Copyright = '(c) 2016 Eugene Bekker. All rights reserved.'
 
 	Description = "Client library for the ACME protocol, which is used to interopertate with the Let's Encrypt project's CA server and any other ACME-compliant server."
 
@@ -33,9 +32,7 @@
 
 	# Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 	PrivateData = @{
-
 		PSData = @{
-
 			# Tags applied to this module. These help with module discovery in online galleries.
 			Tags = @('pki','ssl','tls','security','certificates','letsencrypt','acme','powershell','acmesharp')
 
@@ -50,14 +47,11 @@
 
 			# ReleaseNotes of this module
 			ReleaseNotes = 'Please see the release notes from the release distribution page: https://github.com/ebekker/ACMESharp/releases'
-
 		} # End of PSData hashtable
-
 	} # End of PrivateData hashtable
 
 	# Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 	NestedModules = @( "ACMESharp-Providers\ACMESharp-Providers.psd1" )
-
 
 	############################################################
 	## Unused manifest elements reserved for possible future use
@@ -101,5 +95,4 @@
 
 	# List of all files packaged with this module
 	# FileList = @()
-
 }

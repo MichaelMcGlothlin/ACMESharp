@@ -1,5 +1,4 @@
-﻿
-#cd C:\prj\letsencrypt\solutions\letsencrypt-win\letsencrypt-win\LetsEncrypt.ACME.POSH
+﻿#cd C:\prj\letsencrypt\solutions\letsencrypt-win\letsencrypt-win\LetsEncrypt.ACME.POSH
 #Add-Type -Path .\bin\Debug\ACMESharp.POSH.dll
 
 <#
@@ -90,7 +89,6 @@ function Install-CertificateToAWS {
 	}
 	del $privKeyFile
 	del $certBodyFile
-
 
 	## Assemble AWS POSH Base Args to pass along for authentication
 	$awsBaseArgs = @{

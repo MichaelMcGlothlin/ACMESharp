@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -20,7 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\$(Configuration)\ACMESharp\ACMESharp.POSH.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\ACMESharp\ACMESharp.POSH.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,9 +31,12 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\$(Configuration)\ACMESharp\ACMESharp.POSH.XML</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\Newtonsoft.Json.9.0.2-beta2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -154,31 +157,8 @@
     <StartProgram>C:\Windows\syswow64\WindowsPowerShell\v1.0\powershell.exe</StartProgram>
     <StartArguments>-ExecutionPolicy RemoteSigned -NoExit -Command "ipmo .\$(Configuration)\ACMESharp; if (-not (Test-Path TestVault)) { mkdir TestVault }; cd .\TestVault"</StartArguments>
     <StartWorkingDirectory>..\..</StartWorkingDirectory>
-    <NoWarn>CS1591</NoWarn>
+    <NoWarn>
+    </NoWarn>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
-  <Target Name="XmlDoc2CmdletDoc" AfterTargets="Build">
-    <Exec Command="&quot;$(ProjectDir)..\..\tools\XmlDoc2CmdletDoc\XmlDoc2CmdletDoc.exe&quot; &quot;$(TargetPath)&quot;" />
-    <Exec Command="move &quot;$(TargetPath)-Help.xml&quot; &quot;$(TargetDir)en-US&quot;" />
-    <!-- Add the generated help XML to the Content item group -->
-    <!-- Thanks to http://stackoverflow.com/a/12887795 for this -->
-    <!--
-    
-      ** THIS DOES NOT WORK BECAUSE THIS TARGET HAS TO RUN **
-      ** AFTER THE BUILD PROCESS HAS GENERATED AN ASSEMBLY **
-    
-    <CreateItem Include="$(TargetPath)Foo-Help.xml">
-      <Output TaskParameter="Include" ItemName="FileWrites"/>
-    </CreateItem>
-    <CreateItem Include="$(TargetPath)Foo-Help.xml">
-      <Output TaskParameter="Include" ItemName="FileWrites"/>
-    </CreateItem>
-    <CreateItem Include="$(TargetPath)Foo-Help.xml"
-                AdditionalMetadata="TargetPath=$(TargetPath)Foo-Help.xml">
-      <Output TaskParameter="Include" ItemName="ContentWithTargetPath"/>
-    </CreateItem>
-    <CreateItem Include="$(TargetPath)Foo-Help.xml">
-      <Output TaskParameter="Include" ItemName="Content"/>
-    </CreateItem>
-    -->
-  </Target>
 </Project>

@@ -1,13 +1,9 @@
 ﻿using System;
 
-namespace ACMESharp.Vault.Model
-{
-    public interface IIdentifiable
-    {
-        Guid Id
-        { get; }
+namespace ACMESharp.Vault.Model {
+ public interface IIdentifiable {
+  Guid Id { get; }
 
-        string Alias
-        { get; }
-    }
+  String Alias { get; }
+ }
 }

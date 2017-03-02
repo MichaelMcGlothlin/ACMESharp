@@ -1,11 +1,7 @@
-﻿namespace ACMESharp.Messages
-{
-    public class IdentifierPart
-    {
-        public string Type
-        { get; set; }
+﻿namespace ACMESharp.Messages {
+ public class IdentifierPart {
+  public System.String Type { get; set; }
 
-        public string Value
-        { get; set; }
-    }
+  public System.String Value { get; set; }
+ }
 }

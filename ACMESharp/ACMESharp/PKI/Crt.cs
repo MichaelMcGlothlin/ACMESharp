@@ -1,14 +1,9 @@
-﻿namespace ACMESharp.PKI
-{
+﻿namespace ACMESharp.PKI {
+ public class Crt {
+  public System.String Pem { get; set; }
 
-    public class Crt
-    {
-        public string Pem
-        { get; set; }
-
-        public enum MessageDigest
-        {
-            SHA256
-        }
-    }
+  public enum MessageDigest {
+   SHA256 = 0
+  }
+ }
 }

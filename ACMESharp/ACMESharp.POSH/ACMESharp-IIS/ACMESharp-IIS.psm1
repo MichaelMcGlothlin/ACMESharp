@@ -1,5 +1,4 @@
-﻿
-#cd C:\prj\letsencrypt\solutions\letsencrypt-win\letsencrypt-win\ACMESharp.POSH
+﻿#cd C:\prj\letsencrypt\solutions\letsencrypt-win\letsencrypt-win\ACMESharp.POSH
 #Add-Type -Path .\bin\Debug\ACMESharp.POSH.dll
 
 <#
@@ -85,7 +84,7 @@ function Install-CertificateToIIS {
 	if ($SNIHostname) {
 		$webBindingArgs.HostHeader = $SNIHostname
 	}
-	
+
 	## We craft a ScriptBlock to do the real work in such a way that we can invoke
 	## it locally or remotely based on the right combination of input parameters
 	[scriptblock]$script = {

@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace ACMESharp.DNS
-{
+namespace ACMESharp.DNS {
+ public interface IXXXDnsProvider {
+  void EditTxtRecord ( System.String dnsName, IEnumerable<System.String> dnsValues );
 
-    public interface XXXIDnsProvider
-    {
-        void EditTxtRecord(string dnsName, IEnumerable<string> dnsValues);
+  void EditARecord ( System.String dnsName, System.String dnsValue );
 
-        void EditARecord(string dnsName, string dnsValue);
-
-        void EditCnameRecord(string dnsName, string dnsValue);
-    }
+  void EditCnameRecord ( System.String dnsName, System.String dnsValue );
+ }
 }

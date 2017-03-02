@@ -1,11 +1,7 @@
-﻿namespace ACMESharp.Messages
-{
-    public class AnswerDnsChallengeRequest : RequestMessage
-    {
-        public AnswerDnsChallengeRequest() : base("challenge")
-        { }
+﻿namespace ACMESharp.Messages {
+ public class AnswerDnsChallengeRequest : RequestMessage {
+  public AnswerDnsChallengeRequest () : base ( "challenge" ) { }
 
-        public string KeyAuthorization
-        { get; set; }
-    }
+  public System.String KeyAuthorization { get; set; }
+ }
 }

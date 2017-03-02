@@ -1,30 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ACMESharp.PKI.RSA {
+ public class RsaPrivateKey : PrivateKey {
+  public RsaPrivateKey ( System.Int32 bits, System.String e, System.String pem ) {
+   Bits = bits;
+   E = e;
+   Pem = pem;
+  }
 
-namespace ACMESharp.PKI.RSA
-{
-    public class RsaPrivateKey : PrivateKey
-    {
-        public RsaPrivateKey(int bits, string e, string pem)
-        {
-            Bits = bits;
-            E = e;
-            Pem = pem;
-        }
+  public System.Int32 Bits { get; private set; }
 
-        public int Bits
-        { get; private set; }
+  public System.String E { get; private set; }
 
-        public string E
-        { get; private set; }
+  public System.Object BigNumber { get; set; }
 
-        public object BigNumber
-        { get; set; }
-
-        public string Pem
-        { get; private set; }
-    }
+  public System.String Pem { get; private set; }
+ }
 }

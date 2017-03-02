@@ -1,49 +1,45 @@
-﻿using System;
+﻿using ACMESharp.Ext;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ACMESharp.Ext;
 
-namespace ACMESharp.ACME
-{
-    /// <summary>
-    /// Defines the Provider interface needed to support discovery
-    /// and instance-creation of a <see cref="IChallengeHandler"
-    /// >Challenge Handler</see>.
-    /// </summary>
-    public interface IChallengeHandlerProvider // : IDisposable
-    {
-        IEnumerable<ParameterDetail> DescribeParameters();
+namespace ACMESharp.ACME {
+ /// <summary>
+ /// Defines the Provider interface needed to support discovery
+ /// and instance-creation of a <see cref="IChallengeHandler"
+ /// >Challenge Handler</see>.
+ /// </summary>
+ public interface IChallengeHandlerProvider // : IDisposable
+ {
+  IEnumerable<ParameterDetail> DescribeParameters ();
 
-        bool IsSupported(Challenge c);
+  Boolean IsSupported ( Challenge c );
 
-        IChallengeHandler GetHandler(Challenge c, IReadOnlyDictionary<string, object> initParams);
-    }
+  IChallengeHandler GetHandler ( Challenge c, IReadOnlyDictionary<String, Object> initParams );
+ }
 
-    /// <summary>
-    /// Defines the interface needed to support implementations of
-    /// Challenge Handlers.
-    /// </summary>
-    /// <remarks>
-    /// Challenge Handlers are those components that are able to satisfy
-    /// the Challenges issued by an ACME server as part of a request to
-    /// Authorize an Identifier.
-    /// </remarks>
-    public interface IChallengeHandler : IDisposable
-    {
-        #region -- Properties --
+ /// <summary>
+ /// Defines the interface needed to support implementations of
+ /// Challenge Handlers.
+ /// </summary>
+ /// <remarks>
+ /// Challenge Handlers are those components that are able to satisfy
+ /// the Challenges issued by an ACME server as part of a request to
+ /// Authorize an Identifier.
+ /// </remarks>
+ public interface IChallengeHandler : IDisposable {
 
-        bool IsDisposed { get; }
+  #region -- Properties --
 
-        #endregion -- Properties --
+  Boolean IsDisposed { get; }
 
-        #region -- Methods --
+  #endregion -- Properties --
 
-        void Handle(Challenge c);
+  #region -- Methods --
 
-        void CleanUp(Challenge c);
+  void Handle ( Challenge c );
 
-        #endregion -- Methods --
-    }
+  void CleanUp ( Challenge c );
+
+  #endregion -- Methods --
+ }
 }

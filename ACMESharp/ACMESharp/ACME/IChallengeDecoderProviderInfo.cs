@@ -1,23 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ACMESharp.ACME {
+ public interface IChallengeDecoderProviderInfo {
+  System.String Type { get; }
 
-namespace ACMESharp.ACME
-{
-    public interface IChallengeDecoderProviderInfo
-    {
-        string Type
-        { get; }
+  ChallengeTypeKind SupportedType { get; }
 
-        ChallengeTypeKind SupportedType
-        { get; }
+  System.String Label { get; }
 
-        string Label
-        { get; }
-
-        string Description
-        { get; }
-    }
+  System.String Description { get; }
+ }
 }

@@ -1,24 +1,13 @@
 ﻿using ACMESharp.Ext;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ACMESharp.ACME
-{
-    public interface IChallengeHandlerProviderInfo : IAliasesSupported
-    {
-        string Name
-        { get; }
+namespace ACMESharp.ACME {
+ public interface IChallengeHandlerProviderInfo : IAliasesSupported {
+  System.String Name { get; }
 
-        ChallengeTypeKind SupportedTypes
-        { get; }
+  ChallengeTypeKind SupportedTypes { get; }
 
-        string Label
-        { get; }
+  System.String Label { get; }
 
-        string Description
-        { get; }
-    }
+  System.String Description { get; }
+ }
 }

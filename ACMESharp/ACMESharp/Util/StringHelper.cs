@@ -1,12 +1,11 @@
-﻿namespace ACMESharp.Util
-{
-    public static class StringHelper
-    {
-        public static string IfNullOrEmpty(string s, string v1 = null)
-        {
-            if (string.IsNullOrEmpty(s))
-                return v1;
-            return s;
-        }
-    }
+﻿namespace ACMESharp.Util {
+ public static class StringHelper {
+  public static System.String IfNullOrEmpty ( System.String s, System.String v1 = null ) {
+   if ( System.String.IsNullOrEmpty ( s ) ) {
+    return v1;
+   }
+
+   return s;
+  }
+ }
 }

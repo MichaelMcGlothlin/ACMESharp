@@ -67,7 +67,7 @@ function Resolve-ProviderModule {
 		provMod = $provMod
 		extRoot = $extRoot
 		extPath = $extPath
-	}		
+	}
 }
 
 <#
@@ -96,7 +96,7 @@ function Enable-ProviderModule {
 		[Parameter(Mandatory=$false)]
 		[string]$AcmeVersion
 	)
-	
+
 	$deps = Resolve-ProviderModule -ModuleName $ModuleName
 	if (-not $deps) {
 		return
@@ -140,7 +140,7 @@ function Disable-ProviderModule {
 		[Parameter(Mandatory=$false)]
 		[string]$AcmeVersion
 	)
-	
+
 	$deps = Resolve-ProviderModule -ModuleName $ModuleName
 	if (-not $deps) {
 		return

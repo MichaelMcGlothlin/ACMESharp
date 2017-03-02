@@ -1,11 +1,7 @@
-﻿namespace ACMESharp.Messages
-{
-    public class NewAuthzRequest : RequestMessage
-    {
-        public NewAuthzRequest() : base("new-authz")
-        { }
+﻿namespace ACMESharp.Messages {
+ public class NewAuthzRequest : RequestMessage {
+  public NewAuthzRequest () : base ( "new-authz" ) { }
 
-        public IdentifierPart Identifier
-        { get; set; }
-    }
+  public IdentifierPart Identifier { get; set; }
+ }
 }

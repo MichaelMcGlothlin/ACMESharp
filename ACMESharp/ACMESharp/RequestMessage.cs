@@ -1,12 +1,7 @@
-﻿namespace ACMESharp
-{
-    public abstract class RequestMessage
-    {
-        protected RequestMessage(string resource)
-        {
-            Resource = resource;
-        }
-        public string Resource
-        { get; }
-    }
+﻿namespace ACMESharp {
+ public abstract class RequestMessage {
+  protected RequestMessage ( System.String resource ) => Resource = resource;
+
+  public System.String Resource { get; }
+ }
 }

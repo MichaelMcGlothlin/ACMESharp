@@ -1,35 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ACMESharp.Installer
-{
-    /// <summary>
-    /// Defines the interface needed to support implementations of
-    /// Certificate Installers.
-    /// </summary>
-    /// <remarks>
-    /// Certificate Installers install a private key and a certificate chain
-    /// into some target system, such as a web server or endpoint service.
-    /// </remarks>
-    public interface IInstaller : IDisposable
-    {
-        #region -- Properties --
+namespace ACMESharp.Installer {
+ /// <summary>
+ /// Defines the interface needed to support implementations of
+ /// Certificate Installers.
+ /// </summary>
+ /// <remarks>
+ /// Certificate Installers install a private key and a certificate chain
+ /// into some target system, such as a web server or endpoint service.
+ /// </remarks>
+ public interface IInstaller : IDisposable {
 
-        bool IsDisposed { get; }
+  #region -- Properties --
 
-        #endregion -- Properties --
+  Boolean IsDisposed { get; }
 
-        #region -- Methods --
+  #endregion -- Properties --
 
-        void Install(PKI.PrivateKey pk, PKI.Crt crt, IEnumerable<PKI.Crt> chain,
-                PKI.IPkiTool cp);
+  #region -- Methods --
 
-        void Uninstall(PKI.PrivateKey pk, PKI.Crt crt, IEnumerable<PKI.Crt> chain,
-                PKI.IPkiTool cp);
+  void Install ( PKI.PrivateKey pk, PKI.Crt crt, IEnumerable<PKI.Crt> chain,
+          PKI.IPkiTool cp );
 
-        #endregion -- Methods --
-    }
+  void Uninstall ( PKI.PrivateKey pk, PKI.Crt crt, IEnumerable<PKI.Crt> chain,
+          PKI.IPkiTool cp );
+
+  #endregion -- Methods --
+ }
 }

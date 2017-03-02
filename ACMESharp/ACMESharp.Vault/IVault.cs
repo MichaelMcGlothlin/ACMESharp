@@ -1,49 +1,42 @@
-﻿using System;
+﻿using ACMESharp.Vault.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ACMESharp.Ext;
-using ACMESharp.Vault.Model;
 
-namespace ACMESharp.Vault
-{
-    public interface IVault : IDisposable
-    {
-        #region -- Properties --
+namespace ACMESharp.Vault {
+ public interface IVault : IDisposable {
 
-        bool IsDisposed
-        { get; }
-    
-        bool IsStorageOpen
-        { get; }
+  #region -- Properties --
 
-        #endregion -- Properties --
+  Boolean IsDisposed { get; }
 
-        #region -- Methods --
+  Boolean IsStorageOpen { get; }
 
-        bool TestStorage();
+  #endregion -- Properties --
 
-        void InitStorage(bool force = false);
-    
-        void OpenStorage(bool initOrOpen = false);
-    
-        VaultInfo LoadVault(bool required = true);
-    
-        void SaveVault(VaultInfo vault);
-    
-        IEnumerable<VaultAsset> ListAssets(string nameRegex = null, params VaultAssetType[] type);
-    
-        VaultAsset CreateAsset(VaultAssetType type, string name, bool isSensitive = false,
-                bool getOrCreate = false);
-    
-        VaultAsset GetAsset(VaultAssetType type, string name);
-    
-        Stream SaveAsset(VaultAsset asset);
-    
-        Stream LoadAsset(VaultAsset asset);
+  #region -- Methods --
 
-        #endregion -- Methods --
-    }
+  Boolean TestStorage ();
+
+  void InitStorage ( Boolean force = false );
+
+  void OpenStorage ( Boolean initOrOpen = false );
+
+  VaultInfo LoadVault ( Boolean required = true );
+
+  void SaveVault ( VaultInfo vault );
+
+  IEnumerable<VaultAsset> ListAssets ( String nameRegex = null, params VaultAssetType[] type );
+
+  VaultAsset CreateAsset ( VaultAssetType type, String name, Boolean isSensitive = false,
+          Boolean getOrCreate = false );
+
+  VaultAsset GetAsset ( VaultAssetType type, String name );
+
+  Stream SaveAsset ( VaultAsset asset );
+
+  Stream LoadAsset ( VaultAsset asset );
+
+  #endregion -- Methods --
+ }
 }
