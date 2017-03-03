@@ -3,7 +3,7 @@
 namespace ACMESharp.WebServer {
  public class WebServerInfo {
   // TOOD: this is repeated from DnsInfo, clean this up!
-  private static Newtonsoft.Json.JsonSerializerSettings JSS =
+  private readonly static Newtonsoft.Json.JsonSerializerSettings JSS =
           new Newtonsoft.Json.JsonSerializerSettings {
            Formatting = Newtonsoft.Json.Formatting.Indented,
            TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto,

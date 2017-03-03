@@ -5,8 +5,8 @@
    Info = info;
   }
 
-  public System.String Name { get; private set; }
+  public System.String Name { get; }
 
-  public TInfo Info { get; private set; }
+  public TInfo Info { get; }
  }
 }

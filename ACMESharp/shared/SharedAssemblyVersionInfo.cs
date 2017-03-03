@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 // Version information for an assembly consists of the following four values:
 //
@@ -18,8 +19,12 @@
 [assembly: AssemblyInformationalVersion ( ASMINFO.VERSION )]
 
 // ReSharper disable once InconsistentNaming
+#pragma warning disable RCS1110 // Declare type inside namespace.
+
 internal static class ASMINFO {
  // DON'T FORGET TO UPDATE APPVEYOR.YML
  // ReSharper disable once InconsistentNaming
- public const System.String VERSION = "0.8.2";
+ public const String VERSION = "0.8.2";
 }
+
+#pragma warning restore RCS1110 // Declare type inside namespace.

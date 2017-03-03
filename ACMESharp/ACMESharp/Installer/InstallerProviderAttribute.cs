@@ -8,7 +8,7 @@ namespace ACMESharp.Installer {
   public InstallerProviderAttribute ( String name )
       : base ( typeof ( IInstallerProvider ) ) => Name = name;
 
-  public String Name { get; private set; }
+  public String Name { get; }
 
   public String[] Aliases { get; set; }
 

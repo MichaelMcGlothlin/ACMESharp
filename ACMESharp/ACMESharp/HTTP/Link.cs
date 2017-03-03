@@ -42,10 +42,10 @@ namespace ACMESharp.HTTP {
    Value = String.Format ( LINK_HEADER_FMT, uri, rel );
   }
 
-  public String Value { get; private set; }
+  public String Value { get; }
 
-  public String Uri { get; private set; }
+  public String Uri { get; }
 
-  public String Relation { get; private set; }
+  public String Relation { get; }
  }
 }

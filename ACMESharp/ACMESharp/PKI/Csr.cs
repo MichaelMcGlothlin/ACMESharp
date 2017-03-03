@@ -1,11 +1,13 @@
-﻿namespace ACMESharp.PKI {
+﻿using System;
+
+namespace ACMESharp.PKI {
  /// <summary>
  /// Represents a Certificate Signing Request (CSR).
  /// </summary>
  public class Csr {
   public Csr ( System.String pem ) => Pem = pem;
 
-  public System.String Pem { get; private set; }
+  public String Pem { get; }
 
   //public void ExportAsDer(Stream s)
   //{

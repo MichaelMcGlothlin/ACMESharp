@@ -6,11 +6,12 @@ using System.Collections.Generic;
 namespace ACMESharp.Messages {
  public class ChallengePart {
   [JsonExtensionData]
-  private Dictionary<String, JToken> _expando =
-          new Dictionary<String, JToken> ();
+  private readonly Dictionary<String, JToken> _expando = new Dictionary<String, JToken> ();
 
   public JToken this[ String name ] {
-   get => _expando[ name ]; set => _expando[ name ] = value;
+   get => _expando[ name ];
+
+   set => _expando[ name ] = value;
   }
 
   public String Type { get; set; }

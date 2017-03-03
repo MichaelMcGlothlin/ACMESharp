@@ -1,15 +1,16 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Security.Cryptography;
 
 namespace ACMESharp.JOSE {
  public class RS256Signer : ISigner {
   private RSACryptoServiceProvider _rsa;
   private SHA256CryptoServiceProvider _sha;
-  private System.Object _jwk;
+  private Object _jwk;
 
-  public System.String JwsAlg => "RS256";
+  public String JwsAlg => "RS256";
 
-  public System.Int32 KeySize { get; set; } = 2048;
+  public Int32 KeySize { get; set; } = 2048;
 
   public void Init () {
    _rsa = new RSACryptoServiceProvider ( KeySize );
@@ -41,7 +42,7 @@ namespace ACMESharp.JOSE {
   /// </summary>
   /// <param name="canonical"></param>
   /// <returns></returns>
-  public System.Object ExportJwk ( System.Boolean canonical = false ) {
+  public Object ExportJwk ( System.Boolean canonical = false ) {
    // Note, we only produce a canonical form of the JWK
    // for export therefore we ignore the canonical param
 

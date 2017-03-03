@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ACMESharp.Util {
  public static class JsonHelper {
-  private static Newtonsoft.Json.JsonSerializerSettings JSS_TNH_NONE =
+  private static readonly Newtonsoft.Json.JsonSerializerSettings JSS_TNH_NONE =
           new Newtonsoft.Json.JsonSerializerSettings {
            Formatting = Newtonsoft.Json.Formatting.Indented,
            TypeNameHandling = Newtonsoft.Json.TypeNameHandling.None,
@@ -18,7 +18,7 @@ namespace ACMESharp.Util {
               }
           };
 
-  private static Newtonsoft.Json.JsonSerializerSettings JSS_TNH_OBJ =
+  private static readonly Newtonsoft.Json.JsonSerializerSettings JSS_TNH_OBJ =
           new Newtonsoft.Json.JsonSerializerSettings {
            Formatting = Newtonsoft.Json.Formatting.Indented,
            TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Objects,
@@ -28,7 +28,7 @@ namespace ACMESharp.Util {
               }
           };
 
-  private static Newtonsoft.Json.JsonSerializerSettings JSS_TNH_AUTO =
+  private static readonly Newtonsoft.Json.JsonSerializerSettings JSS_TNH_AUTO =
           new Newtonsoft.Json.JsonSerializerSettings {
            Formatting = Newtonsoft.Json.Formatting.Indented,
            TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto,

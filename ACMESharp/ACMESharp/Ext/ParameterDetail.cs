@@ -1,12 +1,12 @@
-﻿namespace ACMESharp.Ext {
+﻿using System;
+
+namespace ACMESharp.Ext {
  /// <summary>
  /// Defines meta data used to describe parameters that may be provided for
  /// various stages and entry points in the extension mechanisms.
  /// </summary>
  public class ParameterDetail {
-  public ParameterDetail ( System.String name, ParameterType type,
-          System.Boolean isRequired = false, System.Boolean isMultiValued = false,
-          System.String label = null, System.String desc = null ) {
+  public ParameterDetail ( String name, ParameterType type, Boolean isRequired = false, Boolean isMultiValued = false, String label = null, String desc = null ) {
    Name = name;
    Type = type;
    IsRequired = isRequired;
@@ -15,17 +15,17 @@
    Description = desc;
   }
 
-  public System.String Name { get; private set; }
+  public String Name { get; }
 
-  public ParameterType Type { get; private set; }
+  public ParameterType Type { get; }
 
-  public System.Boolean IsRequired { get; private set; }
+  public Boolean IsRequired { get; }
 
-  public System.Boolean IsMultiValued { get; private set; }
+  public Boolean IsMultiValued { get; }
 
-  public System.String Label { get; private set; }
+  public String Label { get; }
 
-  public System.String Description { get; private set; }
+  public String Description { get; }
  }
 
  /// <summary>

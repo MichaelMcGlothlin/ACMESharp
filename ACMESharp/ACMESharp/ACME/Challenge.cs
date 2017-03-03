@@ -20,11 +20,11 @@ namespace ACMESharp.ACME {
    Answer = answer ?? throw new ArgumentNullException ( nameof ( answer ), @"challenge answer must is required" );
   }
 
-  public ChallengeTypeKind TypeKind { get; private set; }
+  public ChallengeTypeKind TypeKind { get; }
 
-  public String Type { get; private set; }
+  public String Type { get; }
 
-  public ChallengeAnswer Answer { get; private set; }
+  public ChallengeAnswer Answer { get; }
  }
 
  public class DnsChallenge : Challenge {

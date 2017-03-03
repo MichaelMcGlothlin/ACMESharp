@@ -1,5 +1,4 @@
 ﻿using ACMESharp.ACME;
-using ACMESharp.HTTP;
 using ACMESharp.JOSE;
 using ACMESharp.JSON;
 using ACMESharp.Messages;
@@ -11,7 +10,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -20,11 +18,11 @@ namespace ACMESharp {
  /// The ACME client encapsulates all the protocol rules to interact
  /// with an ACME client as specified by the ACME specficication.
  /// </summary>
- public class AcmeClient : IDisposable {
+ public partial class AcmeClient : IDisposable {
 
   #region -- Fields --
 
-  private JsonSerializerSettings _jsonSettings = new JsonSerializerSettings {
+  private readonly JsonSerializerSettings _jsonSettings = new JsonSerializerSettings {
    Formatting = Formatting.Indented,
    ContractResolver = new AcmeJsonContractResolver (),
   };
@@ -48,7 +46,7 @@ namespace ACMESharp {
 
   #region -- Properties --
 
-  public String UserAgent { get; private set; }
+  public String UserAgent { get; }
 
   public Uri RootUrl { get; set; }
 
@@ -734,102 +732,5 @@ namespace ACMESharp {
   }
 
   #endregion -- Methods --
-
-  #region -- Nested Types --
-
-  public class AcmeHttpResponse {
-   private String _ContentAsString;
-
-   public AcmeHttpResponse ( HttpWebResponse resp ) {
-    StatusCode = resp.StatusCode;
-    Headers = resp.Headers;
-    Links = new LinkCollection ( Headers.GetValues ( AcmeProtocol.HEADER_LINK ) );
-
-    var rs = resp.GetResponseStream ();
-    using ( var ms = new MemoryStream () ) {
-     rs.CopyTo ( ms );
-     RawContent = ms.ToArray ();
-    }
-   }
-
-   public HttpStatusCode StatusCode { get; set; }
-
-   public WebHeaderCollection Headers { get; set; }
-
-   public LinkCollection Links { get; set; }
-
-   public Byte[] RawContent { get; set; }
-
-   public String ContentAsString {
-    get {
-     if ( _ContentAsString == null ) {
-      if ( RawContent == null || RawContent.Length == 0 ) {
-       return null;
-      }
-
-      using ( var ms = new MemoryStream ( RawContent ) ) {
-       using ( var sr = new StreamReader ( ms ) ) {
-        _ContentAsString = sr.ReadToEnd ();
-       }
-      }
-     }
-     return _ContentAsString;
-    }
-   }
-
-   public Boolean IsError { get; set; }
-
-   public Exception Error { get; set; }
-
-   public ProblemDetailResponse ProblemDetail { get; set; }
-  }
-
-  public class AcmeWebException : AcmeException {
-   public AcmeWebException ( WebException innerException, String message = null,
-           AcmeHttpResponse response = null ) : base ( message, innerException ) {
-    Response = response;
-    if ( Response?.ProblemDetail?.OrignalContent != null ) {
-     this.With ( nameof ( Response.ProblemDetail ),
-             Response.ProblemDetail.OrignalContent );
-    }
-   }
-
-   protected AcmeWebException ( SerializationInfo info, StreamingContext context ) : base ( info, context ) { }
-
-   public WebException WebException => InnerException as WebException;
-
-   public AcmeHttpResponse Response { get; private set; }
-
-   public override String Message {
-    get {
-     if ( Response != null ) {
-      return base.Message + "\n +Response from server:\n\t+ Code: " + Response.StatusCode.ToString () + "\n\t+ Content: " + Response.ContentAsString;
-     } else {
-      return base.Message + "\n +No response from server";
-     }
-    }
-   }
-  }
-
-  public class AcmeProtocolException : AcmeException {
-   public AcmeProtocolException ( String message, AcmeHttpResponse response = null,
-           Exception innerException = null ) : base ( message, innerException ) => Response = response;
-
-   protected AcmeProtocolException ( SerializationInfo info, StreamingContext context ) : base ( info, context ) { }
-
-   public AcmeHttpResponse Response { get; private set; }
-
-   public override String Message {
-    get {
-     if ( Response != null ) {
-      return base.Message + "\n +Response from server:\n\t+ Code: " + Response.StatusCode.ToString () + "\n\t+ Content: " + Response.ContentAsString;
-     } else {
-      return base.Message + "\n +No response from server";
-     }
-    }
-   }
-  }
-
-  #endregion -- Nested Types --
  }
 }

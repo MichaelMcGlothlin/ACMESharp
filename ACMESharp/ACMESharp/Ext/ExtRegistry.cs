@@ -12,7 +12,7 @@ namespace ACMESharp.Ext {
  /// <typeparam name="PI">Provider Info type</typeparam>
  [Serializable]
  public class ExtRegistry<P, PI> : Dictionary<String, Lazy<P, PI>>, IExtDetail {
-  private Func<PI, String> _keyGetter;
+  private readonly Func<PI, String> _keyGetter;
   // NOTE:  Even though we declare this for lazy evaluation, in reality
   // this will get evaluated and instantiated almost as soon as it's
   // configured because we'll need to inspect the value in order to

@@ -5,8 +5,7 @@ namespace ACMESharp.PKI {
  [MetadataAttribute]
  [AttributeUsage ( AttributeTargets.Class, AllowMultiple = false )]
  public class PkiToolProviderAttribute : ExportAttribute {
-  public PkiToolProviderAttribute ( String name )
-      : base ( typeof ( IPkiToolProvider ) ) => Name = name;
+  public PkiToolProviderAttribute ( String name ) : base ( typeof ( IPkiToolProvider ) ) => Name = name;
 
   public String Name { get; private set; }
 

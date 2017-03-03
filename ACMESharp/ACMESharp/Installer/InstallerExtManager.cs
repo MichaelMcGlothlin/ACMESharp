@@ -26,8 +26,7 @@ namespace ACMESharp.Installer {
    return _config.Aliases.Keys;
   }
 
-  public static IInstallerProvider GetProvider ( String name,
-      IReadOnlyDictionary<String, Object> reservedLeaveNull = null ) {
+  public static IInstallerProvider GetProvider ( String name, IReadOnlyDictionary<String, Object> reservedLeaveNull = null ) {
    AssertInit ();
    return _config.Get ( name )?.Value;
   }

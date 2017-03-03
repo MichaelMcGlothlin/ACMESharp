@@ -13,7 +13,7 @@ namespace ACMESharp.HTTP {
  /// which are the complete, formatted Link values.
  /// </remarks>
  public class LinkCollection : IEnumerable<System.String>, IEnumerable<Link>, ILookup<System.String, System.String> {
-  private List<Link> _Links = new List<Link> ();
+  private readonly List<Link> _Links = new List<Link> ();
 
   public LinkCollection () { }
 

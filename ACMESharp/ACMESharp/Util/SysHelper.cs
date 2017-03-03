@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Security.Principal;
 
 namespace ACMESharp.Util {
@@ -18,10 +19,12 @@ namespace ACMESharp.Util {
      isElevatedAdmin = new WindowsPrincipal ( user )
              .IsInRole ( WindowsBuiltInRole.Administrator );
     }
-   } catch ( UnauthorizedAccessException ) {
+   } catch ( UnauthorizedAccessException ex ) {
     // TODO:  log or notify?
-   } catch ( Exception ) {
+    Debug.WriteLine ( ex );
+   } catch ( Exception ex ) {
     // TODO:  log or notify?
+    Debug.WriteLine ( ex );
    }
 
    return isElevatedAdmin;

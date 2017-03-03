@@ -70,10 +70,13 @@
       <Link>Properties\SharedGlobalSuppressions.cs</Link>
     </Compile>
     <Compile Include="AcmeClient.cs" />
+    <Compile Include="AcmeClient.AcmeHttpResponse.cs" />
     <Compile Include="AcmeProtocol.cs" />
     <Compile Include="AcmeException.cs" />
+    <Compile Include="AcmeClient.AcmeProtocolException.cs" />
     <Compile Include="AcmeRegistration.cs" />
     <Compile Include="AcmeServerDirectory.cs" />
+    <Compile Include="AcmeClient.AcmeWebException.cs" />
     <Compile Include="ACME\Challenge.cs" />
     <Compile Include="ACME\ChallengeDecoderProviderAttribute.cs" />
     <Compile Include="ACME\ChallengeHandlerExtManager.cs" />

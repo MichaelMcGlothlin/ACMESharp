@@ -11,9 +11,9 @@ namespace ACMESharp.ACME {
    SupportedType = supportedType;
   }
 
-  public ChallengeTypeKind SupportedType { get; private set; }
+  public ChallengeTypeKind SupportedType { get; }
 
-  public String Type { get; private set; }
+  public String Type { get; }
 
   public String Label { get; set; }
 

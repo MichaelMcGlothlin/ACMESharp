@@ -26,11 +26,11 @@ namespace ACMESharp.ACME.Providers {
 
   #region -- Properties --
 
-  public String WriteOutPath { get; private set; } = STD_OUT;
+  public String WriteOutPath { get; } = STD_OUT;
 
-  public Boolean Append { get; private set; }
+  public Boolean Append { get; }
 
-  public Boolean Overwrite { get; private set; }
+  public Boolean Overwrite { get; }
 
   public Boolean IsDisposed { get; private set; }
 
@@ -77,9 +77,10 @@ namespace ACMESharp.ACME.Providers {
     try {
      priorW.Dispose ();
      priorS.Dispose ();
-    } catch ( Exception ) {
+    } catch ( Exception ex ) {
      // TODO: failure to clean up the prior Out
      // should do what???
+     Debug.WriteLine ( ex );
     }
    }
   }
@@ -163,9 +164,10 @@ namespace ACMESharp.ACME.Providers {
     try {
      _writer.Dispose ();
      _stream.Dispose ();
-    } catch ( Exception ) {
+    } catch ( Exception ex ) {
      // TODO: failure to clean up the prior Out
      // should do what???
+     Debug.WriteLine ( ex );
     }
    }
 

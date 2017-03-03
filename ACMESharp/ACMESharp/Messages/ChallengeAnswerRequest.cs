@@ -19,7 +19,7 @@ namespace ACMESharp.Messages {
    }
   }
 
-  protected ChallengeAnswer Answer { get; private set; }
+  protected ChallengeAnswer Answer { get; }
 
   public static ChallengeAnswerRequest CreateRequest ( ChallengeAnswer answer ) => new ChallengeAnswerRequest ( answer );
 
