@@ -4,6 +4,7 @@ using ACMESharp.Vault.Profile;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Management.Automation;
 
 namespace ACMESharp.POSH {
@@ -35,7 +36,11 @@ namespace ACMESharp.POSH {
    var existingProfile = VaultProfileManager.GetProfile ( ProfileName );
 
    if ( existingProfile != null ) {
-    try { existingVault = Util.VaultHelper.GetVault ( ProfileName ); } catch ( Exception ) { }
+    try {
+     existingVault = Util.VaultHelper.GetVault ( ProfileName );
+    } catch ( Exception ex ) {
+     Debug.WriteLine ( ex );
+    }
    }
 
    if ( Remove ) {

@@ -1,17 +1,19 @@
-﻿namespace ACMESharp.PKI.RSA {
+﻿using System;
+
+namespace ACMESharp.PKI.RSA {
  public class RsaPrivateKey : PrivateKey {
-  public RsaPrivateKey ( System.Int32 bits, System.String e, System.String pem ) {
+  public RsaPrivateKey ( Int32 bits, String e, String pem ) {
    Bits = bits;
    E = e;
    Pem = pem;
   }
 
-  public System.Int32 Bits { get; private set; }
+  public Int32 Bits { get; }
 
-  public System.String E { get; private set; }
+  public String E { get; }
 
-  public System.Object BigNumber { get; set; }
+  public Object BigNumber { get; set; }
 
-  public System.String Pem { get; private set; }
+  public String Pem { get; }
  }
 }

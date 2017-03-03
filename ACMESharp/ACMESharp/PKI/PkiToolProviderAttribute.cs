@@ -7,7 +7,7 @@ namespace ACMESharp.PKI {
  public class PkiToolProviderAttribute : ExportAttribute {
   public PkiToolProviderAttribute ( String name ) : base ( typeof ( IPkiToolProvider ) ) => Name = name;
 
-  public String Name { get; private set; }
+  public String Name { get; }
 
   public String[] Aliases { get; set; }
 

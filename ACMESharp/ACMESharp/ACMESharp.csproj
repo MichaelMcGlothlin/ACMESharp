@@ -93,8 +93,12 @@
     <Compile Include="ACME\Providers\HttpChallengeDecoderProvider.cs" />
     <Compile Include="ACME\Providers\ManualChallengeHandler.cs" />
     <Compile Include="ACME\Providers\ManualChallengeHandlerProvider.cs" />
+    <Compile Include="Certificate.CryptKeyProviderInformation.cs" />
+    <Compile Include="Certificate.CryptoApiBlob.cs" />
     <Compile Include="Certificate.cs" />
     <Compile Include="AuthorizationState.cs" />
+    <Compile Include="Certificate.NativeMethods.cs" />
+    <Compile Include="Certificate.SystemTime.cs" />
     <Compile Include="CertificateRequest.cs" />
     <Compile Include="DNS\AwsRoute53DnsProvider.cs" />
     <Compile Include="DNS\DnsInfo.cs" />
